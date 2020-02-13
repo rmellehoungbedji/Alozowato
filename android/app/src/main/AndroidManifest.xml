@@ -9,10 +9,6 @@
         android:name="io.flutter.app.FlutterApplication"
         android:label="alonouz_mobile"
         android:icon="@mipmap/ic_launcher">
-
-         <meta-data android:name="com.google.android.geo.API_KEY"
-               android:value="AIzaSyBb7ImpywT16p82gY3z4cvZjYqxdhs4UtY"/>
-
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

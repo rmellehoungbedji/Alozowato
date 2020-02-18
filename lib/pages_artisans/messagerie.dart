@@ -15,7 +15,7 @@ class Messagerie extends StatefulWidget{
   Widget build(BuildContext context) {
    
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.menu),
@@ -29,7 +29,7 @@ class Messagerie extends StatefulWidget{
              fontWeight: FontWeight.bold 
              ),
         ),
-        elevation: 0.0,
+        elevation: 1.0,
         actions: <Widget>[
           IconButton( 
             icon: Icon(Icons.search),
@@ -52,7 +52,7 @@ class Messagerie extends StatefulWidget{
                     topRight: Radius.circular(50.0),
                  ),
                ),
-               child: Column(
+               child: Column(  
                  children: <Widget>[
                   Recentchats(),
                  ],

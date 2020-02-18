@@ -122,13 +122,13 @@ List<Message> chats = [
      unread:  false,
    ),
 
-    Message(
+    /*Message(
      sender: currentUser,
      time: '7:30 Matin',
      text: '',
      isLiked: false,
      unread:  false,
-   ),
+   ),*/
  
     Message(
      sender: paul,

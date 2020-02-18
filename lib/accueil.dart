@@ -197,7 +197,7 @@ int selectedRadio;
                   child: Text("COMMENCER"),
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) {
-                         return InscriUsager1();
+                         return InscriArtis();
                     }));
                   },
                   shape: new RoundedRectangleBorder(

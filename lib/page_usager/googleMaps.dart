@@ -17,11 +17,17 @@ class _GooglemapsState extends State<Googlemaps> {
   }
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold (
+      
         appBar: AppBar(
           title: Text('Maps Sample App'),
           backgroundColor: Colors.green[700],
+          actions: <Widget>[
+          IconButton(
+            icon:Icon(Icons.menu, color: Colors.white),
+            onPressed: () {},
+            )
+        ],
         ),
         body: GoogleMap(
           onMapCreated: _onMapCreated,
@@ -30,7 +36,6 @@ class _GooglemapsState extends State<Googlemaps> {
             zoom: 11.0,
           ),
         ),
-      ),
-    );
+     );
   }
 }

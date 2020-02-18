@@ -4,8 +4,7 @@ import 'myApp.dart';
 
 
 void main() => runApp (
-  new  MyApp(), 
- 
+  new  MyApp()
 );
 
           

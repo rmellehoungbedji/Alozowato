@@ -1,5 +1,6 @@
 
 
+import 'package:alonouz_mobile/page_usager/inscriUsager1.dart';
 import 'package:alonouz_mobile/pages_artisans/inscriArtis.dart';
 import 'package:flutter/material.dart';
 
@@ -196,7 +197,7 @@ int selectedRadio;
                   child: Text("COMMENCER"),
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) {
-                         return InscriArtis();
+                         return InscriUsager1();
                     }));
                   },
                   shape: new RoundedRectangleBorder(

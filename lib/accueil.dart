@@ -1,8 +1,9 @@
 
 
-import 'package:alonouz_mobile/page_usager/inscriUsager1.dart';
+//import 'package:alonouz_mobile/page_usager/inscriUsager1.dart';
 import 'package:alonouz_mobile/pages_artisans/inscriArtis.dart';
 import 'package:flutter/material.dart';
+import 'package:toast/toast.dart';
 
 class Accueil extends StatefulWidget {
   Accueil(): super();
@@ -17,7 +18,7 @@ int selectedRadio;
 @override
   void initState(){
      super.initState();
-     selectedRadio = 0;
+     selectedRadio = -1;
    }
    setSelectedRadio(int val){
     setState((){
@@ -40,7 +41,7 @@ int selectedRadio;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("ALONOUZOR Rapide"),
+        title: Text("ALONOUZOR"),
         actions: <Widget>[
           IconButton(
             icon:Icon(Icons.menu, color: Colors.white),
@@ -55,7 +56,7 @@ int selectedRadio;
           child :
           Container(
             decoration: BoxDecoration(
-              color: Colors.blueGrey.withOpacity(0.30),
+              color: Colors.white.withOpacity(0.30),
             ),
             child: 
             Column(
@@ -69,16 +70,16 @@ int selectedRadio;
                          children: <Widget>[
                             Container(
                                decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(0.50),
+                                color: Colors.blue[300].withOpacity(0.50),
                                 shape: BoxShape.circle
                               ),
                             ),
                             Center(
                              child: Container(
-                                width: 200.0,
-                               height: 200.0,
+                                width: 250.0,
+                               height: 250.0,
                                child: ClipOval(
-                                  child: Image.asset("assets/mat.jpg",
+                                  child: Image.asset("assets/artis.jpg",
                                   fit: BoxFit.cover,
                                   ),
                                ),
@@ -94,44 +95,14 @@ int selectedRadio;
                       children: <Widget>[
                         Text("Alônouzor",
                         style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.blue,
                         fontFamily : 'Roboto' ,
-                        letterSpacing : 1.5,
-                        fontSize: 25,
+                        letterSpacing : 1.2,
+                        fontSize: 18,
                          ),
                         ),
                       ],
                    ),
-
-                /*Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 0.0,vertical: 70),
-                  child: Text(
-                    'BESOIN D\'UN ARTISAN ?',
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                    color: Colors.white,
-                    fontFamily : 'Roboto' ,
-                     letterSpacing : 1.5,
-                    fontSize: 25,
-                     ),
-                  )
-                ),*/
-
-
-              /* Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 0.0,vertical:0.0),
-                  child: Text(
-                    '                     ALONOUZOR, '
-                    '\n        Vous permet d\'alerter tous les\nartisans les plus proches de chez vous !',
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 17,
-                  ),
-                 ),
-                ),*/
-
-             
 
               ButtonBar(
               alignment: MainAxisAlignment.spaceEvenly,
@@ -149,11 +120,11 @@ int selectedRadio;
                       ),
                        Text ( 'Artisan' , 
                         style : TextStyle ( 
-                          color : Colors.white , 
-                          fontWeight : FontWeight.w800 , 
+                          color : Colors.blue , 
+                          fontWeight : FontWeight.w700 , 
                           fontFamily : 'Roboto' , 
-                          letterSpacing : 2.5 , 
-                          fontSize : 20 , 
+                          letterSpacing : 2.2 , 
+                          fontSize : 18 , 
                           ), 
                       ),
                     ],
@@ -172,11 +143,11 @@ int selectedRadio;
                       ),
                        Text ( 'Usager' , 
                         style : TextStyle ( 
-                          color : Colors.white , 
-                          fontWeight : FontWeight.w800 , 
+                          color : Colors.blue , 
+                          fontWeight : FontWeight.w700 , 
                           fontFamily : 'Roboto' , 
-                          letterSpacing : 2.5 , 
-                          fontSize : 20 , 
+                          letterSpacing : 2.2 , 
+                          fontSize : 18 , 
                           ), 
                       ),
                     ],
@@ -185,23 +156,30 @@ int selectedRadio;
             ),
 
            //new  Spacer(),
-              SizedBox(height:30.0),
+              SizedBox(height:20.0),
 
              Center(
                child: Container(
-               width: 130.0,
+               width: 150.0,
                height: 50.0,
                child: RaisedButton(
                   textColor: Colors.white,
                   color: Colors.blue,
                   child: Text("COMMENCER"),
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) {
-                         return InscriUsager1();
+                    if(selectedRadio == -1){
+                        Toast.show("Sélectionner un utilisateur", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
+                    }else{
+                        Navigator.push(context, MaterialPageRoute(builder: (context) {
+                        return InscriArtis();
                     }));
+                   
+                    }
+                     
                   },
+
                   shape: new RoundedRectangleBorder(
-                  borderRadius: new BorderRadius.circular(30.0)
+                  borderRadius: new BorderRadius.circular(20.0)
                   )
                   ),
                ), 

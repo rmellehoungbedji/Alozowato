@@ -60,6 +60,42 @@ class _EspaceDiscussionState extends State<EspaceDiscussion> {
            ),
       );
   }
+
+
+  _buildMessageComposer() {
+   return Container(
+        padding: EdgeInsets.symmetric(horizontal: 8.0),
+        height: 70.0,
+        color: Colors.white,
+        child: Row(
+          children: <Widget>[
+            IconButton(
+              icon: Icon(Icons.photo),
+              iconSize: 25.0,
+              color: Theme.of(context).primaryColor,
+              onPressed: () {},
+            ),
+            Expanded(
+              child: TextField(
+                textCapitalization: TextCapitalization.sentences,
+                onChanged: (value){},
+                decoration: InputDecoration.collapsed(
+                  hintText: 'Ecrire....',
+                ),
+               ),
+              ),
+             IconButton(
+              icon: Icon(Icons.send),
+              iconSize: 25.0,
+              color: Theme.of(context).primaryColor,
+              onPressed: () {},
+            ),
+          ]
+        ),
+   );
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,37 +117,41 @@ class _EspaceDiscussionState extends State<EspaceDiscussion> {
             )
         ],
         ),
-        body: Column(
-          children: <Widget>[
-            Expanded(
-                 child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(30.0),
-                      topRight: Radius.circular(30.0)
+        body: GestureDetector(
+          onTap: ()=> FocusScope.of(context).unfocus(),
+           child: Column(
+            children: <Widget>[
+              Expanded(
+                   child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(30.0),
+                        topRight: Radius.circular(30.0)
+                    ),
                   ),
-                ),
-                child: ClipRRect(
-                   borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(30.0),
-                      topRight: Radius.circular(30.0)
-                  ),
-                     child: ListView.builder(
-                    //;reverse: true,
-                    padding: EdgeInsets.only(top: 15.0),
-                    itemCount: message.length,
-                    itemBuilder: (BuildContext context, int index){
-                      final Message messages = message[index];
-                      final bool isMe = messages.sender.id == currentUser.id;
-                      return _buildMessage(messages, isMe);
-                    } ,
+                  child: ClipRRect(
+                     borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(30.0),
+                        topRight: Radius.circular(35.0)
+                    ),
+                       child: ListView.builder(
+                      //;reverse: true,
+                      padding: EdgeInsets.only(top: 15.0),
+                      itemCount: message.length,
+                      itemBuilder: (BuildContext context, int index){
+                        final Message messages = message[index];
+                        final bool isMe = messages.sender.id == currentUser.id;
+                        return _buildMessage(messages, isMe);
+                      } ,
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+              _buildMessageComposer(),
+            ],
+          ),
         ),
     );
   }
-}
+} 

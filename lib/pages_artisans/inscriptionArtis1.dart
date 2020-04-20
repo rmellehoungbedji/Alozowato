@@ -32,7 +32,7 @@ import 'package:flutter/material.dart';
    
            return BoxDecoration(
              image: DecorationImage(
-            image: AssetImage("assets/plomb1.jpg"),
+            image: AssetImage(""),
             fit: BoxFit.cover,
           ),
         );
@@ -40,14 +40,14 @@ import 'package:flutter/material.dart';
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("ALONOUZOR Rapide"),
+        title: Text("ALONOUZOR"),
       ),
       body: Container(
       decoration: _buildBackground(),
           child :
           Container(
             decoration: BoxDecoration(
-              color: Colors.grey.withOpacity(0.85),
+              color: Colors.white10.withOpacity(0.5),
            ),
                   padding: EdgeInsets.only(top:0.0, left: 20.0, right: 20.0, bottom: 20.0),
                   child: Column(
@@ -57,15 +57,17 @@ import 'package:flutter/material.dart';
                    
                     SizedBox(height: 40.0,),
                     buildTextFieldTelephone("Téléphone"),
-                     SizedBox(height: 20.0,),
+                     SizedBox(height: 40.0,),
+                    buildTextFieldMetier("Métier"),
+                     SizedBox(height: 40.0,),
                     buildTextFieldDatNais("Date de naissance"),
                     SizedBox(height: 20.0,),
                     Text ( 'Sexe' , 
                         style : TextStyle ( 
-                          color : Colors.white , 
+                          color : Colors.blue , 
                           fontWeight : FontWeight.w800 , 
                           fontFamily : 'Roboto' , 
-                          letterSpacing : 2.5 , 
+                          letterSpacing : 2.2  , 
                           fontSize : 20 , 
                           ), 
                       ),
@@ -85,11 +87,11 @@ import 'package:flutter/material.dart';
                       ),
                        Text ( 'Masculin' , 
                         style : TextStyle ( 
-                          color : Colors.white , 
+                          color : Colors.blue, 
                           fontWeight : FontWeight.w800 , 
                           fontFamily : 'Roboto' , 
-                          letterSpacing : 2.5 , 
-                          fontSize : 15.0 , 
+                          letterSpacing : 2.2 , 
+                          fontSize : 18.0 , 
                           ), 
                       ),
                     ],
@@ -108,11 +110,11 @@ import 'package:flutter/material.dart';
                       ),
                        Text ( 'Féminin' , 
                         style : TextStyle ( 
-                          color : Colors.white , 
+                          color : Colors.blue , 
                           fontWeight : FontWeight.w800 , 
                           fontFamily : 'Roboto' , 
-                          letterSpacing : 2.5 , 
-                          fontSize : 15 , 
+                          letterSpacing : 2.2 , 
+                          fontSize : 18 , 
                           ), 
                       ),
                     ],
@@ -142,17 +144,42 @@ import 'package:flutter/material.dart';
                   ),
                   enabledBorder: OutlineInputBorder(
                      borderRadius: BorderRadius.circular(20.0),
-                     borderSide: BorderSide(color: Colors.white),
+                     borderSide: BorderSide(color: Colors.blue),
                   ),
                   focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white),
+                      borderSide: BorderSide(color: Colors.blue),
                       borderRadius: BorderRadius.circular(100)
                   ) ,
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(90.0)
                   ),
                   prefixIcon:
-                  Icon(Icons.phone, color: Colors.white) 
+                  Icon(Icons.phone, color: Colors.blue) 
+                  ),
+                  );
+                  }
+
+                  Widget buildTextFieldMetier(String hintText){
+                  return TextField(
+                  decoration: InputDecoration(
+                  labelText: 'Entrer votre métier',
+                  hintStyle: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18.0,
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                     borderRadius: BorderRadius.circular(20.0),
+                     borderSide: BorderSide(color: Colors.blue),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue),
+                      borderRadius: BorderRadius.circular(100)
+                  ) ,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(90.0)
+                  ),
+                  prefixIcon:
+                  Icon(Icons.work, color: Colors.blue)
                   ),
                   );
                   }
@@ -168,17 +195,17 @@ import 'package:flutter/material.dart';
                   ),
                   enabledBorder: OutlineInputBorder(
                      borderRadius: BorderRadius.circular(20.0),
-                     borderSide: BorderSide(color: Colors.white),
+                     borderSide: BorderSide(color: Colors.blue),
                   ),
                   focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white),
+                      borderSide: BorderSide(color: Colors.blue),
                       borderRadius: BorderRadius.circular(100)
                   ) ,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(90.0)
                   ),
                   prefixIcon:
-                  Icon(Icons.calendar_today , color: Colors.white) 
+                  Icon(Icons.calendar_today , color: Colors.blue) 
                   ),
                   );
                   }

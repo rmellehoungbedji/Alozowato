@@ -12,7 +12,7 @@ class CategorySelector extends StatefulWidget {
 
       int selectedIndex = 0;
 
-      final List<String> categories = ['Discussions', 'Requetes'];
+      final List<String> categories = ['Discussions'];
       @override
       Widget build(BuildContext context) {
         return Container(

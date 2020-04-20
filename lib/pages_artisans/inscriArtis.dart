@@ -17,7 +17,7 @@ import 'package:flutter/material.dart';
    
            return BoxDecoration(
              image: DecorationImage(
-            image: AssetImage("assets/plomb1.jpg"),
+            image: AssetImage(""),
             fit: BoxFit.cover,
           ),
         );
@@ -25,44 +25,47 @@ import 'package:flutter/material.dart';
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("ALONOUZOR Rapide"),
+        title: Text("ALONOUZOR"),
       ),
         
-      body: Container(
-      decoration: _buildBackground(),
-          child :
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.grey.withOpacity(0.85),
-            ),
-                  padding: EdgeInsets.only(top:0.0, left: 20.0, right: 20.0, bottom: 20.0),
-                  child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    //SizedBox(height: 60.0,),
-                    Text(
-                      'INSCRIPTION',
-                      style: TextStyle(
-                        fontSize: 30.0,
-                        fontWeight: FontWeight.w500, 
-                        color: Colors.white
+      body: GestureDetector(
+        onTap: ()=> FocusScope.of(context).unfocus(),
+        child: Container(
+        decoration: _buildBackground(),
+            child :
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.white10.withOpacity(0.5),
+              ),
+                    padding: EdgeInsets.only(top:00.0, left: 20.0, right: 20.0, bottom: 20.0),
+                    child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      //SizedBox(height: 60.0,),
+                      Text(
+                        'INSCRIPTION',
+                        style: TextStyle(
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.w500, 
+                          color: Colors.blue
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 40.0,),
-                    buildTextFieldNom("Nom"),
-                    SizedBox(height: 20.0,),
-                    buildTextFieldPrenom("Prenom"),
-                    SizedBox(height: 20.0),
-                    Container(
+                      SizedBox(height: 40.0,),
+                      buildTextFieldNom("Nom"),
+                      SizedBox(height: 20.0,),
+                      buildTextFieldPrenom("Prenom"),
+                      SizedBox(height: 20.0),
+                      Container(
 
+                      ),
+                      SizedBox(height: 40.0),
+                      buildButtonContainer(),
+                    ],
                     ),
-                    SizedBox(height: 40.0),
-                    buildButtonContainer(),
-                  ],
-                  ),
-                  )
-                  )
+                    )
+                    ),
+      )
                   );
 
                   } 
@@ -77,17 +80,17 @@ import 'package:flutter/material.dart';
                   ),
                   enabledBorder: OutlineInputBorder(
                      borderRadius: BorderRadius.circular(20.0),
-                     borderSide: BorderSide(color: Colors.white),
+                     borderSide: BorderSide(color: Colors.blue),
                   ),
                   focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white),
+                      borderSide: BorderSide(color: Colors.blue),
                       borderRadius: BorderRadius.circular(100)
                   ) ,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(90.0)
                   ),
                   prefixIcon:
-                  Icon(Icons.person, color: Colors.white) 
+                  Icon(Icons.person, color: Colors.blue) 
                   ),
                   );
                   }
@@ -102,17 +105,17 @@ import 'package:flutter/material.dart';
                   ),
                   enabledBorder: OutlineInputBorder(
                      borderRadius: BorderRadius.circular(20.0),
-                     borderSide: BorderSide(color: Colors.white),
+                     borderSide: BorderSide(color: Colors.blue),
                   ),
                   focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white),
+                      borderSide: BorderSide(color: Colors.blue),
                       borderRadius: BorderRadius.circular(100)
                   ) ,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(90.0)
                   ),
                   prefixIcon:
-                  Icon(Icons.person, color: Colors.white)
+                  Icon(Icons.person, color: Colors.blue)
                   ),
                   );
                   }

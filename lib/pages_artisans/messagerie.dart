@@ -38,18 +38,6 @@ class _MessagerieState extends State<Messagerie> {
         children: <Widget>[
           CategorySelector(),
           Expanded(
-<<<<<<< HEAD
-               child: Container(
-               decoration: BoxDecoration(
-               color: Colors.white,
-                 borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30.0),
-                    topRight: Radius.circular(30.0),
-                 ),
-               ),
-               child: Column(  
-                 children: <Widget>[
-=======
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -60,7 +48,6 @@ class _MessagerieState extends State<Messagerie> {
               ),
               child: Column(
                 children: <Widget>[
->>>>>>> 458105a83afdbce6bad57cdfbaaabd57aef0c5ae
                   Recentchats(),
                 ],
               ),

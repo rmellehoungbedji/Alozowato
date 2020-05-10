@@ -149,7 +149,8 @@ class _AccueilAtrState extends State<AccueilAtr> {
                  
 
               
-              SizedBox(height: 30.0),
+              
+              
 
                   Center(
                    child: Container(

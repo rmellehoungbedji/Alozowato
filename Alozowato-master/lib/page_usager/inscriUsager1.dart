@@ -106,7 +106,7 @@ class _InscriUsager1State extends State<InscriUsager1> {
         child: RaisedButton(
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return InscriUsager2();
+              return ;
             }));
           },
           color: Colors.blue,

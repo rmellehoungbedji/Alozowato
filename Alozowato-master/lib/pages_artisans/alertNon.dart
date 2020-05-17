@@ -11,7 +11,7 @@ class _AlertNonState extends State<AlertNon> {
     BoxDecoration _buildBackground() {
       return BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/plomb1.jpg"),
+          image: AssetImage(""),
           fit: BoxFit.cover,
         ),
       );
@@ -19,13 +19,13 @@ class _AlertNonState extends State<AlertNon> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text("ALONOUZOR Rapide"),
+          title: Text(""),
         ),
         body: Container(
           decoration: _buildBackground(),
           child: Container(
             decoration: BoxDecoration(
-              color: Colors.grey.withOpacity(0.85),
+              color: Colors.white.withOpacity(0.85),
             ),
             child: Column(
               children: <Widget>[

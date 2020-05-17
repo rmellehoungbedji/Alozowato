@@ -12,7 +12,9 @@
         android:label="alonouz_mobile"
         android:icon="@mipmap/ic_launcher">
         <meta-data android:name="com.google.android.geo.API_KEY"
-               android:value="AIzaSyBb7ImpywT16p82gY3z4cvZjYqxdhs4UtY"/>
+               android:value="AIzaSyCK8_aDwfoifhgewAoC9u_hhJRMf1XAzuk"/>
+               
+  
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

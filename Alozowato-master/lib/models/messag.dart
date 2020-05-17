@@ -129,66 +129,6 @@ List<Message> chats = [
     isLiked: false,
     unread: false,
   ),
-<<<<<<< HEAD
-
-   Message(
-     sender: armelle,
-     time: '9:12 Matin',
-     text: 'Bonjour',
-     isLiked: false,
-     unread:  false,
-   ),
-
-    Message(
-     sender: josiane,
-     time: '6:32 Matin',
-     text: 'Moi je ne suis pas loin de votre ateleir',
-     isLiked: false,
-     unread:  false,
-   ),
-
-    Message(
-     sender: arnaud,
-     time: '11:20 Soir',
-     text: 'Je veux prendre un rendez-vous pour demain',
-     isLiked: false,
-     unread:  false,
-   ),
-
-    Message(
-     sender: lutter,
-     time: '6:58 Soir',
-     text: 'Salut',
-     isLiked: false,
-     unread:  false,
-   ),
-
-    /*Message(
-     sender: currentUser,
-     time: '7:30 Matin',
-     text: '',
-     isLiked: false,
-     unread:  false,
-   ),*/
- 
-    Message(
-     sender: paul,
-     time: '10:00 Soir',
-     text: 'Je serai là dans 1h',
-     isLiked: false,
-     unread:  false,
-   ),
-
-    Message(
-     sender: kevin,
-     time: '2:01 Matin',
-     text: 'cc',
-     isLiked: false,
-     unread:  false,
-   ),
-
-=======
->>>>>>> 458105a83afdbce6bad57cdfbaaabd57aef0c5ae
 ];
 
 List<Message> message = [

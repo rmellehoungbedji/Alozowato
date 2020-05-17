@@ -13,7 +13,7 @@ class _AlertOuiState extends State<AlertOui> {
     BoxDecoration _buildBackground() {
       return BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/plomb1.jpg"),
+          image: AssetImage(""),
           fit: BoxFit.cover,
         ),
       );
@@ -22,13 +22,13 @@ class _AlertOuiState extends State<AlertOui> {
     return Scaffold(
         appBar: AppBar(
           title: Text("ALONOUZOR"),
-          iconTheme: IconThemeData(color: Colors.red[300]),
+          iconTheme: IconThemeData(color: Colors.white),
         ),
         body: Container(
           decoration: _buildBackground(),
           child: Container(
             decoration: BoxDecoration(
-              color: Colors.grey.withOpacity(0.85),
+              color: Colors.white.withOpacity(0.85),
             ),
             child: Column(
               children: <Widget>[

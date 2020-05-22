@@ -71,53 +71,62 @@ class _GoogleMapsState extends State<GoogleMaps> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          GoogleMap(
-            mapType: MapType.normal,
-            initialCameraPosition: cameraPosition,
-            markers: Set.from(markers),
-            onMapCreated: onMapCreated,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 50),
-            child: Card(
-              elevation: 10,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(12)),
-              ),
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                child: DropdownButtonHideUnderline(
-                  child: ButtonTheme(
-                    alignedDropdown: true,
-                    child: DropdownButton(
-                      elevation: 10,
-                      isExpanded: true,
-                      items: _dropDownItems,
-                      onChanged: onChangeDropDownItem,
-                      value: activiteSelectionne,
+      body: Container(
+        child: Stack(
+          children: <Widget>[
+            GoogleMap(
+              mapType: MapType.normal,
+              initialCameraPosition: cameraPosition,
+              markers: Set.from(markers),
+              onMapCreated: onMapCreated,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 50),
+              child: Card(
+                elevation: 10,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(12)),
+                ),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: DropdownButtonHideUnderline(
+                    child: ButtonTheme(
+                      alignedDropdown: true,
+                      child: DropdownButton(
+                        elevation: 10,
+                        isExpanded: true,
+                        items: _dropDownItems,
+                        onChanged: onChangeDropDownItem,
+                        value: activiteSelectionne,
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Align(
-              alignment: Alignment.bottomRight,
-              child: FloatingActionButton(
-                backgroundColor: Colors.white,
-                onPressed: _getCurrentLocation,
-                child: Icon(
-                  Icons.location_searching,
-                  color: Colors.blue,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Align(
+                alignment: Alignment.bottomRight,
+                child: FloatingActionButton(
+                  backgroundColor: Colors.white,
+                  onPressed: _getCurrentLocation,
+                  child: Icon(
+                    Icons.location_searching,
+                    color: Colors.blue,
+                  ),
                 ),
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.person,), title:Text('Profil')),
+           BottomNavigationBarItem(icon: Icon(Icons.star), title:Text('Favoris')),
+            BottomNavigationBarItem(icon: Icon(Icons.settings), title:Text('Réglage'))
+        ]
       ),
     );
   }

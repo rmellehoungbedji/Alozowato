@@ -1,13 +1,13 @@
-import 'package:alonouz_mobile/page_usager/inscriUsager2.dart';
+import 'package:alonouz_mobile/pages_artisans/inscription1.dart';
 import 'package:flutter/material.dart';
 
 
-class Inscription extends StatefulWidget {
+class InscriptionAtr extends StatefulWidget {
   @override
-  _InscriptionState createState() => _InscriptionState();
+  _InscriptionAtrState createState() => _InscriptionAtrState();
 }
 
-class _InscriptionState extends State<Inscription> {
+class _InscriptionAtrState extends State<InscriptionAtr> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -116,7 +116,7 @@ class _InscriptionState extends State<Inscription> {
                   child: RaisedButton(
                     onPressed: () {
                       Navigator.push(context, MaterialPageRoute(builder: (context) {
-                        return InscriUsager2();
+                        return Inscription1();
                       }));
                     },
                     color: Colors.blueGrey[300],
@@ -144,4 +144,9 @@ class _InscriptionState extends State<Inscription> {
   
     
     }
-    }
+
+    
+
+ 
+    
+}

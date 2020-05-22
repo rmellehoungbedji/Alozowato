@@ -1,14 +1,15 @@
-import 'package:alonouz_mobile/page_usager/googleMaps.dart';
+import 'package:alonouz_mobile/pages_artisans/localisation.dart';
 import 'package:flutter/material.dart';
 import 'package:toast/toast.dart';
 
-class InscriUsager2 extends StatefulWidget {
- InscriUsager2 () : super();
+
+class Inscription1 extends StatefulWidget {
+ Inscription1 () : super();
   @override
-  _InscriUsager2State createState() => _InscriUsager2State();
+  _Inscription1State createState() => _Inscription1State();
 }
 
-class _InscriUsager2State extends State<InscriUsager2> {
+class _Inscription1State extends State<Inscription1> {
    int selectedRadio;
  
   @override
@@ -38,7 +39,7 @@ class _InscriUsager2State extends State<InscriUsager2> {
             //crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.only(top: 150.0),
+                padding: EdgeInsets.only(top: 18.0),
                 //child: Image.asset("assets/pl.jpg"),
               ),
               
@@ -61,7 +62,7 @@ class _InscriUsager2State extends State<InscriUsager2> {
                         blurRadius: 20.0),  
                     ]),
                   child: Padding(
-                    padding: EdgeInsets.only(left:20.0, right: 20.0, top:20.0, bottom: 20.0), 
+                    padding: EdgeInsets.only(left:20.0, right: 20.0, top:14.0, bottom: 14.0), 
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -89,8 +90,37 @@ class _InscriUsager2State extends State<InscriUsager2> {
                                   borderRadius: BorderRadius.circular(20)),
                               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
                               prefixIcon: Icon(Icons.phone, color: Colors.white)),
-                         ),
-                       
+                        ),
+                        SizedBox(height: 30.0),  
+                        Text('Date de naissance',
+                          style: TextStyle(
+                              fontSize: 20.0,
+                              fontFamily: "Poppins-Medium",
+                          ), 
+                        ),
+                        TextField(
+                          keyboardType: TextInputType.datetime,
+                          
+                          decoration: InputDecoration(
+                                labelText: _dateTime == null? 'Date de naissance' : _dateTime.toString(),
+                                hintStyle: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18.0,
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                  borderSide: BorderSide(color: Colors.white),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Colors.white),
+                                    borderRadius: BorderRadius.circular(20)),
+                                border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)), 
+                                prefixIcon: Icon(
+                                  Icons.calendar_today, 
+                                  color: Colors.white
+                                  ),
+                                ),
+                          ),
                           SizedBox(height: 20.0),
                           Text(
                             'Sexe',
@@ -169,20 +199,20 @@ class _InscriUsager2State extends State<InscriUsager2> {
                           child: Text("SUIVANT"),
                           onPressed: () {
                             if(  selectedRadio == -1){
-                              Toast.show("Sélectionner le sexe", context, 
+                              Toast.show("Sélectionner un utilisateur", context, 
                               duration: Toast.LENGTH_LONG,
                               gravity: Toast.BOTTOM
                               );
                             } else if(selectedRadio == 1) {
                               Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
-                              return GoogleMaps();
+                              return Localisation();
                             }));
 
                             } else if(selectedRadio == 2){
                               Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
-                              return GoogleMaps();
+                              return Localisation();
                             }));
                             }
                             
@@ -201,3 +231,4 @@ class _InscriUsager2State extends State<InscriUsager2> {
   }
 
 }
+

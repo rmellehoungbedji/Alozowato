@@ -1,157 +1,232 @@
-import 'package:alonouz_mobile/models/messag.dart';
-import 'package:alonouz_mobile/models/user.dart';
 import 'package:flutter/material.dart';
 
 class EspaceDiscussion extends StatefulWidget {
-
-  final User user;
-  EspaceDiscussion({this.user});
   @override
+
   _EspaceDiscussionState createState() => _EspaceDiscussionState();
 }
 
 class _EspaceDiscussionState extends State<EspaceDiscussion> {
-  _buildMessage(Message messages, bool isMe){
-      return Container(
-         margin: isMe
-           ? EdgeInsets.only(
-             top: 8.0,
-             bottom: 8.0,
-             left: 80.0
-           )
-           : EdgeInsets.only(
-             top: 8.0,
-             bottom: 8.0,
-             right: 80.0
-           ),
-           padding: EdgeInsets.symmetric(horizontal: 25.0, vertical: 15.0),
-           width: MediaQuery.of(context).size.width * 0.75,
-           decoration: BoxDecoration(
-             color: isMe ? Colors.blue[50] : Colors.blue[100],
-             borderRadius: isMe
-             ? BorderRadius.only(
-               topLeft: Radius.circular(15.0),
-               bottomLeft: Radius.circular(15.0),
-             )
-             : BorderRadius.only(
-               topRight: Radius.circular(15.0),
-               bottomRight: Radius.circular(15.0)
-             ),
-           ),
-           child: Column(
-             crossAxisAlignment: CrossAxisAlignment.start,
-             children: <Widget>[
-               Text(messages.time,
-                 style: TextStyle(
-                   color: Colors.blueGrey,
-                   fontSize: 16.0,
-                   fontWeight: FontWeight.w600,
-                 )
-               ),
-               SizedBox(height:8.0),
-               Text(messages.text,
-                 style: TextStyle(
-                   color: Colors.blueGrey,
-                   fontSize: 16.0,
-                   fontWeight: FontWeight.w600,
-                 )
-               ),
-             ],
-           ),
-      );
-  }
-
-
-  _buildMessageComposer() {
-   return Container(
-        padding: EdgeInsets.symmetric(horizontal: 8.0),
-        height: 70.0,
-        color: Colors.white,
-        child: Row(
-          children: <Widget>[
-            IconButton(
-              icon: Icon(Icons.photo),
-              iconSize: 25.0,
-              color: Theme.of(context).primaryColor,
-              onPressed: () {},
-            ),
-            Expanded(
-              child: TextField(
-                textCapitalization: TextCapitalization.sentences,
-                onChanged: (value){},
-                decoration: InputDecoration.collapsed(
-                  hintText: 'Ecrire....',
-                ),
-               ),
-              ),
-             IconButton(
-              icon: Icon(Icons.send),
-              iconSize: 25.0,
-              color: Theme.of(context).primaryColor,
-              onPressed: () {},
-            ),
-          ]
-        ),
-   );
-
-  }
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
-        title: Text(widget.user.name,
-        style: TextStyle(
-             fontSize: 20.0,
-             fontWeight: FontWeight.bold 
-            ),
-        ),
-        elevation: 1.0,
-        actions: <Widget>[
-          IconButton( 
-            icon: Icon(Icons.more_horiz),
-            iconSize: 30.0,
-            color: Colors.white, 
-            onPressed: () {},
-            )
-        ],
-        ),
-        body: GestureDetector(
-          onTap: ()=> FocusScope.of(context).unfocus(),
-           child: Column(
-            children: <Widget>[
-              Expanded(
-                   child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(30.0),
-                        topRight: Radius.circular(30.0)
-                    ),
+        elevation: 4.0,
+         iconTheme: IconThemeData(color: Colors.black),
+         backgroundColor: Colors.white,
+        title: Row(
+          children: <Widget>[
+            Container(
+              width: 40,
+              height: 40,
+              margin: EdgeInsets.fromLTRB(0, 5, 10, 0),
+              child: CircleAvatar(
+                  child: ClipOval(
+                    child: Center(
+                      child: Icon(
+                         Icons.person,
+                         color: Colors.white
+                      ),
+                    )
                   ),
-                  child: ClipRRect(
-                     borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(30.0),
-                        topRight: Radius.circular(35.0)
+                backgroundColor: Colors.grey,
+                minRadius:30,
+              ),
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  'Inolvic',
+                   style: TextStyle(color: Colors.black),
+                ),
+                 Text(
+                  'En ligne',
+                   style: TextStyle(
+                     color: Colors.grey,
+                     fontSize: 12,
                     ),
-                       child: ListView.builder(
-                      //;reverse: true,
-                      padding: EdgeInsets.only(top: 15.0),
-                      itemCount: message.length,
-                      itemBuilder: (BuildContext context, int index){
-                        final Message messages = message[index];
-                        final bool isMe = messages.sender.id == currentUser.id;
-                        return _buildMessage(messages, isMe);
-                      } ,
-                    ),
+                ),  
+              ]
+            )
+          ],
+        )
+      ),
+      body: Stack(
+        children: <Widget>[
+          Container(
+            color: Colors.white,
+            child: Column(
+              children: <Widget>[
+                Flexible(
+                  child: ListView.builder(
+                    itemCount: 1,
+                    shrinkWrap: true,
+                    itemBuilder: (BuildContext context, int index) {
+                    return Padding(
+                      padding: EdgeInsets.all(10),
+                      child: Column(
+                        children: <Widget>[
+                          Text(
+                            '20/05/20',
+                            style: TextStyle(fontSize: 12, color: Colors.grey),
+                          ),
+                          Bubble(
+                            message: 'je veux prendre un rendez-vous.',
+                              isMe: true,
+                          ),
+                          Bubble(
+                            message: 'Dites moi quand vous serez disponible..',
+                              isMe: true,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top:5),
+                          ),
+                          Text(
+                            'Aujourd\hui',
+                             style: TextStyle(fontSize: 12, color: Colors.grey),
+                          ),
+                          Bubble(
+                            message: 'Ok.',
+                              isMe: false,
+                          ),
+                           Bubble(
+                            message: 'Je vous reviens.Merci',
+                              isMe: false,
+                          ),
+                        ]
+                      ),
+                      );
+                   },
                   ),
                 ),
-              ),
-              _buildMessageComposer(),
-            ],
+              ],
+            ),
           ),
-        ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            width: MediaQuery.of(context).size.width,
+            child: Container(
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                boxShadow: [
+                   BoxShadow(
+                    color: Colors.grey[300],
+                    offset: Offset(-2,0),
+                    blurRadius: 5,
+                  )
+                ]
+              ),
+              child: Row(
+                children: <Widget>[
+                  IconButton(
+                    icon: Icon(Icons.camera), 
+                    onPressed: (){},
+                    color: Colors.blueGrey,
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.image), 
+                    onPressed: (){},
+                    color: Colors.blueGrey,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 15),
+                  ),
+                  Expanded(
+                    child: TextFormField(
+                      keyboardType: TextInputType.text,
+                      decoration: InputDecoration(
+                        hintText: 'Taper message',
+                        border: InputBorder.none 
+                      )
+                    )
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.send), 
+                    onPressed: (){},
+                    color: Colors.blueGrey,
+                  ),
+                ],
+              ),
+            )
+          )
+        ]
+      ), 
     );
   }
 } 
+
+class Bubble extends StatelessWidget{
+  final bool isMe;
+  final String message;
+
+  Bubble ({this.message, this.isMe});
+  
+  Widget build(BuildContext context) {
+   return Container(
+      margin: EdgeInsets.all(5),
+      padding: isMe? EdgeInsets.only(left:20): EdgeInsets.only(right:20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Column(
+            mainAxisAlignment: isMe? MainAxisAlignment.end : MainAxisAlignment.start,
+            crossAxisAlignment: isMe? CrossAxisAlignment.end : CrossAxisAlignment.start,
+            children: <Widget>[
+                Container(
+                   padding: EdgeInsets.all(15),
+                   decoration: BoxDecoration(
+                     gradient: isMe? LinearGradient(
+                       begin: Alignment.topRight,
+                       end: Alignment.bottomLeft,
+                       stops: [10,10],
+                       colors: [
+                          Colors.blueGrey,
+                          Colors.blueGrey,
+                       ]
+                      ): LinearGradient(
+                         begin: Alignment.topRight,
+                          end: Alignment.bottomLeft,
+                          stops: [10,10],
+                          colors: [
+                            Color(0xFFEBF5FC),
+                            Color(0xFFEBF5FC),
+                          ]
+                        ),
+                        borderRadius: isMe? BorderRadius.only(
+                          topRight: Radius.circular(5),
+                          topLeft: Radius.circular(5),
+                          bottomRight: Radius.circular(0),
+                          bottomLeft: Radius.circular(5),
+                        ) : BorderRadius.only(
+                          topRight: Radius.circular(5),
+                          topLeft: Radius.circular(5),
+                          bottomRight: Radius.circular(5),
+                          bottomLeft: Radius.circular(0),
+                   )
+                  ),
+                  child: Column(
+                     crossAxisAlignment: isMe?  CrossAxisAlignment.end :  CrossAxisAlignment.start,
+                     children: <Widget>[
+                       Text(
+                         message,
+                         textAlign: isMe? TextAlign.end : TextAlign.start,
+                         style: TextStyle(
+                           color: isMe? Colors.white : Colors.grey,
+                         ),
+                       )
+                     ],
+                  ), 
+                ),
+             ],
+          )
+        ],
+      ),
+    );
+  }
+
+}

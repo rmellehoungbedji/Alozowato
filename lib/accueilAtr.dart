@@ -11,8 +11,7 @@ class AccueilAtr extends StatefulWidget {
   _AccueilAtrState createState() => _AccueilAtrState();
 }
 
-var purpleColor = Colors.purple[200];
-//var darkpurpleColor = Colors.;
+var purpleColor = Colors.blueGrey[200];
 
 class _AccueilAtrState extends State<AccueilAtr> {
    int selectedRadio;
@@ -71,7 +70,7 @@ class _AccueilAtrState extends State<AccueilAtr> {
                             children: <Widget>[
                               Container(
                                 decoration: BoxDecoration(
-                                    color: Colors.purple.withOpacity(0.50),
+                                    color: Colors.blueGrey.withOpacity(0.50),
                                     shape: BoxShape.circle),
                               ),
                               Center(
@@ -101,7 +100,7 @@ class _AccueilAtrState extends State<AccueilAtr> {
                         Radio(
                           value: 1,
                           groupValue: selectedRadio,
-                          activeColor: Colors.purple,
+                          activeColor: Colors.blueGrey,
                           onChanged: (val) {
                             print("Radio $val");
                             setSelectedRadio(val);
@@ -124,7 +123,7 @@ class _AccueilAtrState extends State<AccueilAtr> {
                       Radio(
                         value: 2,
                         groupValue: selectedRadio,
-                        activeColor: Colors.purple,
+                        activeColor: Colors.blueGrey,
                         onChanged: (val) {
                           print("Radio $val");
                           setSelectedRadio(val);
@@ -148,17 +147,13 @@ class _AccueilAtrState extends State<AccueilAtr> {
                   ),
                  
 
-              
-              
-              
-
                   Center(
                    child: Container(
                       width: 130.0,
                       height: 50.0,
                       child: RaisedButton(
                           textColor: Colors.white,
-                          color: Colors.purple[300],
+                          color: Colors.blueGrey[300],
                           child: Text("COMMENCER"),
                           onPressed: () {
                             if(  selectedRadio == -1){
